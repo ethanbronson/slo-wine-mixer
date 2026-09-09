@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SLO Wine Mixer | April 3, 2027 | San Luis Obispo, CA</title>
+<title>SLO Wine Mixer | April 3, 2027 | Madonna Inn Expo Center, San Luis Obispo</title>
 <meta name="description" content="The SLO Wine Mixer is the Central Coast's high-energy, Gen-Z-leaning wine festival in San Luis Obispo, CA. Year 2 is April 3, 2027. Be the first to know when tickets drop." />
 
 <!-- Fonts -->
@@ -234,6 +234,18 @@
   .logo-slot:hover { transform: translateY(-3px); background: rgba(255,255,255,0.1); }
   .logo-slot:hover img { opacity: 1; }
 
+  /* ---------- Winery marquee ---------- */
+  .marquee { overflow: hidden; display: flex; width: 100%; padding: 20px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; align-items: center; gap: 72px; padding: 0 36px; margin: 0; list-style: none; flex-shrink: 0; min-width: 100%; justify-content: space-around; animation: marquee 55s linear infinite; }
+  .m-right .marquee-track { animation-direction: reverse; animation-duration: 62s; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-track li { flex-shrink: 0; display: flex; align-items: center; justify-content: center; height: 64px; }
+  .marquee-track img { max-height: 64px; max-width: 190px; width: auto; height: auto; object-fit: contain; opacity: 0.85; transition: opacity 0.2s ease, transform 0.2s ease; }
+  .marquee-track img:hover { opacity: 1; transform: scale(1.06); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; flex-wrap: wrap; gap: 32px; justify-content: center; } .marquee-track[aria-hidden="true"] { display: none; } .marquee { mask-image: none; -webkit-mask-image: none; } }
+  @media (max-width: 720px) { .marquee-track { gap: 44px; } .marquee-track li { height: 48px; } .marquee-track img { max-height: 48px; max-width: 140px; } }
+
   /* ---------- Powered by pourd ---------- */
   .pourd { background: var(--teal); color: #eaf3f2; }
   .pourd-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
@@ -368,9 +380,9 @@
     <div class="hero-logo">
       <img src="assets/swm-logo.png" alt="SLO Wine Mixer" />
     </div>
-    <div class="tag"><span class="dot"></span> April 3, 2027 &middot; San Luis Obispo</div>
+    <div class="tag"><span class="dot"></span> April 3, 2027 &middot; Madonna Inn Expo Center</div>
     <h1>The Central Coast's<br />Wine Festival <span class="accent">Returns</span></h1>
-    <p class="lede">Unlimited pours from local wineries, live music, mechanical bull, and zero wine snobbery. San Luis Obispo's wildest tasting is back Saturday, April 3, 2027.</p>
+    <p class="lede">Unlimited pours from local wineries, live music, mechanical bull, and zero wine snobbery. San Luis Obispo's wildest tasting is back Saturday, April 3, 2027 at the Madonna Inn Expo Center.</p>
     <form class="capture" id="heroForm" novalidate>
       <label for="heroEmail" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
       <input type="email" id="heroEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
@@ -489,32 +501,18 @@
 </section>
 
 <!-- ================= WINERIES ================= -->
-<section class="section partners-band" id="wineries" style="background:var(--ink);">
+<section class="section partners-band" id="wineries" style="background:var(--ink);padding-bottom:72px;">
   <div class="wrap">
-    <div class="head center reveal" style="margin-bottom:20px;">
+    <div class="head center reveal" style="margin-bottom:36px;">
       <span class="eyebrow" style="color:var(--gold-soft);">Poured at Year 1</span>
       <h2>The wineries make the magic</h2>
       <p>41 Central Coast wineries poured at Year 1. The Year 2 lineup is coming soon.</p>
     </div>
-    <div class="logo-grid reveal" aria-label="Wineries that poured at Year 1">
-      <div class="logo-slot"><img src="logos/absolution-cellars.png" alt="Absolution Cellars" /></div>
-      <div class="logo-slot"><img src="logos/avivo.png" alt="Avivo" /></div>
-      <div class="logo-slot"><img src="logos/bezel-cellars.png" alt="Bezel Cellars" /></div>
-      <div class="logo-slot"><img src="logos/bianchi-winery.png" alt="Bianchi Winery" /></div>
-      <div class="logo-slot"><img src="logos/hope-family-wines.png" alt="Hope Family Wines" /></div>
-      <div class="logo-slot"><img src="logos/j-lohr-vineyards-wines.png" alt="J. Lohr Vineyards Wines" /></div>
-      <div class="logo-slot"><img src="logos/mcprice-myers-wines.png" alt="McPrice Myers Wines" /></div>
-      <div class="logo-slot"><img src="logos/serial-wines.png" alt="Serial Wines" /></div>
-      <div class="logo-slot"><img src="logos/st-amant-winery.png" alt="St Amant Winery" /></div>
-      <div class="logo-slot"><img src="logos/summerwood-winery-inn.png" alt="Summerwood Winery Inn" /></div>
-      <div class="logo-slot"><img src="logos/thacher-winery-vineyard.png" alt="Thacher Winery Vineyard" /></div>
-      <div class="logo-slot"><img src="logos/tobin-james-cellars.png" alt="Tobin James Cellars" /></div>
-      <div class="logo-slot"><img src="logos/truss-wines.png" alt="Truss Wines" /></div>
-      <div class="logo-slot"><img src="logos/vinyl-vineyards.png" alt="Vinyl Vineyards" /></div>
-      <div class="logo-slot"><img src="logos/wilbur-wines.png" alt="Wilbur Wines" /></div>
-      <div class="logo-slot"><img src="logos/wine-boss.png" alt="Wine Boss" /></div>
-    </div>
-    <p class="reveal" style="margin-top:36px;font-size:1.05rem;color:rgba(246,242,238,0.85);">Make wine on the Central Coast? <a href="mailto:hello@slowinemixer.com?subject=Pour%20at%20SLO%20Wine%20Mixer%202027" style="color:var(--gold-soft);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Pour with us in 2027</a></p>
+  </div>
+  <div class="marquee m-left" aria-hidden="false"><ul class="marquee-track"><li><img src="logos/absolution-cellars.png" alt="Absolution Cellars" /></li><li><img src="logos/avivo.png" alt="Avivo" /></li><li><img src="logos/bezel-cellars.png" alt="Bezel Cellars" /></li><li><img src="logos/bianchi-winery.png" alt="Bianchi Winery" /></li><li><img src="logos/boutz-cellars.png" alt="Boutz Cellars" /></li><li><img src="logos/brochelle-vineyards.png" alt="Brochelle Vineyards" /></li><li><img src="logos/cal-poly-wine.png" alt="Cal Poly Wine &amp; Viticulture" /></li><li><img src="logos/castoro-cellars.png" alt="Castoro Cellars" /></li><li><img src="logos/chamisal-vineyards.png" alt="Chamisal Vineyards" /></li><li><img src="logos/creekcut-winery.png" alt="Creekcut Winery" /></li><li><img src="logos/cutbow-wines.png" alt="Cutbow Wines" /></li><li><img src="logos/derby-wine-estates.png" alt="Derby Wine Estates" /></li><li><img src="logos/el-vinero.png" alt="El Vinero" /></li><li><img src="logos/field-recordings.png" alt="Field Recordings" /></li><li><img src="logos/foley-family-wines.png" alt="Foley Family Wines" /></li><li><img src="logos/hayseed-and-housdon.png" alt="Hayseed And Housdon" /></li><li><img src="logos/high-camp-wines.png" alt="High Camp Wines" /></li><li><img src="logos/hope-family-wines.png" alt="Hope Family Wines" /></li><li><img src="logos/idola-wine-co.png" alt="Idola Wine Co" /></li><li><img src="logos/j-lohr-vineyards-wines.png" alt="J. Lohr Vineyards Wines" /></li><li><img src="logos/justin-vineyards-winery.png" alt="Justin Vineyards Winery" /></li></ul><ul class="marquee-track" aria-hidden="true"><li><img src="logos/absolution-cellars.png" alt="Absolution Cellars" /></li><li><img src="logos/avivo.png" alt="Avivo" /></li><li><img src="logos/bezel-cellars.png" alt="Bezel Cellars" /></li><li><img src="logos/bianchi-winery.png" alt="Bianchi Winery" /></li><li><img src="logos/boutz-cellars.png" alt="Boutz Cellars" /></li><li><img src="logos/brochelle-vineyards.png" alt="Brochelle Vineyards" /></li><li><img src="logos/cal-poly-wine.png" alt="Cal Poly Wine &amp; Viticulture" /></li><li><img src="logos/castoro-cellars.png" alt="Castoro Cellars" /></li><li><img src="logos/chamisal-vineyards.png" alt="Chamisal Vineyards" /></li><li><img src="logos/creekcut-winery.png" alt="Creekcut Winery" /></li><li><img src="logos/cutbow-wines.png" alt="Cutbow Wines" /></li><li><img src="logos/derby-wine-estates.png" alt="Derby Wine Estates" /></li><li><img src="logos/el-vinero.png" alt="El Vinero" /></li><li><img src="logos/field-recordings.png" alt="Field Recordings" /></li><li><img src="logos/foley-family-wines.png" alt="Foley Family Wines" /></li><li><img src="logos/hayseed-and-housdon.png" alt="Hayseed And Housdon" /></li><li><img src="logos/high-camp-wines.png" alt="High Camp Wines" /></li><li><img src="logos/hope-family-wines.png" alt="Hope Family Wines" /></li><li><img src="logos/idola-wine-co.png" alt="Idola Wine Co" /></li><li><img src="logos/j-lohr-vineyards-wines.png" alt="J. Lohr Vineyards Wines" /></li><li><img src="logos/justin-vineyards-winery.png" alt="Justin Vineyards Winery" /></li></ul></div>
+  <div class="marquee m-right" aria-hidden="false"><ul class="marquee-track"><li><img src="logos/le-vigne-winery.png" alt="Le Vigne Winery" /></li><li><img src="logos/mcprice-myers-wines.png" alt="McPrice Myers Wines" /></li><li><img src="logos/serial-wines.png" alt="Serial Wines" /></li><li><img src="logos/slo-coast-wine-collective.png" alt="SLO Coast Wine Collective" /></li><li><img src="logos/st-amant-winery.png" alt="St Amant Winery" /></li><li><img src="logos/summerwood-winery-inn.png" alt="Summerwood Winery Inn" /></li><li><img src="logos/thacher-winery-vineyard.png" alt="Thacher Winery Vineyard" /></li><li><img src="logos/the-royalnonesuchfarm.png" alt="The Royal Nonesuch Farm" /></li><li><img src="logos/the-set-wines.png" alt="The Set Wines" /></li><li><img src="logos/tobin-james-cellars.png" alt="Tobin James Cellars" /></li><li><img src="logos/tolosa-winery.png" alt="Tolosa Winery" /></li><li><img src="logos/truss-wines.png" alt="Truss Wines" /></li><li><img src="logos/vigo-cellars.png" alt="Vigo Cellars" /></li><li><img src="logos/villa-san-juliette-winery.png" alt="Villa San-Juliette Winery" /></li><li><img src="logos/vina-robles-winery.png" alt="Vina Robles Winery" /></li><li><img src="logos/vinyl-vineyards.png" alt="Vinyl Vineyards" /></li><li><img src="logos/volatus.png" alt="Volatus" /></li><li><img src="logos/warroom-cellars.png" alt="Warroom Cellars" /></li><li><img src="logos/wilbur-wines.png" alt="Wilbur Wines" /></li><li><img src="logos/wine-boss.png" alt="Wine Boss" /></li></ul><ul class="marquee-track" aria-hidden="true"><li><img src="logos/le-vigne-winery.png" alt="Le Vigne Winery" /></li><li><img src="logos/mcprice-myers-wines.png" alt="McPrice Myers Wines" /></li><li><img src="logos/serial-wines.png" alt="Serial Wines" /></li><li><img src="logos/slo-coast-wine-collective.png" alt="SLO Coast Wine Collective" /></li><li><img src="logos/st-amant-winery.png" alt="St Amant Winery" /></li><li><img src="logos/summerwood-winery-inn.png" alt="Summerwood Winery Inn" /></li><li><img src="logos/thacher-winery-vineyard.png" alt="Thacher Winery Vineyard" /></li><li><img src="logos/the-royalnonesuchfarm.png" alt="The Royal Nonesuch Farm" /></li><li><img src="logos/the-set-wines.png" alt="The Set Wines" /></li><li><img src="logos/tobin-james-cellars.png" alt="Tobin James Cellars" /></li><li><img src="logos/tolosa-winery.png" alt="Tolosa Winery" /></li><li><img src="logos/truss-wines.png" alt="Truss Wines" /></li><li><img src="logos/vigo-cellars.png" alt="Vigo Cellars" /></li><li><img src="logos/villa-san-juliette-winery.png" alt="Villa San-Juliette Winery" /></li><li><img src="logos/vina-robles-winery.png" alt="Vina Robles Winery" /></li><li><img src="logos/vinyl-vineyards.png" alt="Vinyl Vineyards" /></li><li><img src="logos/volatus.png" alt="Volatus" /></li><li><img src="logos/warroom-cellars.png" alt="Warroom Cellars" /></li><li><img src="logos/wilbur-wines.png" alt="Wilbur Wines" /></li><li><img src="logos/wine-boss.png" alt="Wine Boss" /></li></ul></div>
+  <div class="wrap">
+    <p class="reveal" style="margin-top:40px;text-align:center;font-size:1.05rem;color:rgba(246,242,238,0.85);">Make wine on the Central Coast? <a href="mailto:hello@slowinemixer.com?subject=Pour%20at%20SLO%20Wine%20Mixer%202027" style="color:var(--gold-soft);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Pour with us in 2027</a></p>
   </div>
 </section>
 
@@ -562,9 +560,9 @@
 <!-- ================= STAY TUNED ================= -->
 <section class="section stay" id="stay">
   <div class="wrap reveal">
-    <span class="eyebrow">Saturday, April 3, 2027 &middot; San Luis Obispo</span>
+    <span class="eyebrow">Saturday, April 3, 2027 &middot; Madonna Inn Expo Center, San Luis Obispo</span>
     <h2 style="font-family:'Sansita',serif;font-size:clamp(2rem,4.4vw,3rem);color:var(--brown-dark);margin:12px 0;font-weight:800;">Be the first to know when tickets drop</h2>
-    <p style="font-size:1.12rem;color:var(--ink-soft);max-width:560px;margin:0 auto;">The date is locked. Tickets are not on sale yet. Leave your email and we will hit you up the second they drop.</p>
+    <p style="font-size:1.12rem;color:var(--ink-soft);max-width:560px;margin:0 auto;">The date and venue are locked. Tickets are not on sale yet. Leave your email and we will hit you up the second they drop.</p>
     <form class="capture" id="stayForm" novalidate>
       <label for="stayEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
       <input type="email" id="stayEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
@@ -581,7 +579,7 @@
     <div class="foot-grid">
       <div>
         <span class="foot-logo"><img src="assets/swm-logo.png" alt="SLO Wine Mixer" /></span>
-        <p>San Luis Obispo, CA<br />The Central Coast's wine festival for people who like to have fun.</p>
+        <p>Madonna Inn Expo Center<br />San Luis Obispo, CA<br />The Central Coast's wine festival for people who like to have fun.</p>
       </div>
       <nav class="foot-nav" aria-label="Footer">
         <a href="#about">About</a>
