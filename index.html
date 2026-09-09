@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SLO Wine Mixer | April 3, 2027 | San Luis Obispo, CA</title>
+<meta name="description" content="The SLO Wine Mixer is the Central Coast's high-energy, Gen-Z-leaning wine festival in San Luis Obispo, CA. Year 2 is April 3, 2027. Be the first to know when tickets drop." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --brown: #8b5a2b;
+    --brown-dark: #6b4420;
+    --red: #a10000;
+    --red-deep: #7a0000;
+    --cream: #f6f2ee;
+    --cream-2: #efe7dd;
+    --white: #ffffff;
+    --gold: #c98a3a;
+    --gold-soft: #e0a955;
+    --ink: #2a1d12;
+    --ink-soft: #4a3826;
+    --teal: #184044;        /* pourd accent */
+    --teal-light: #2c6b70;
+    --shadow: 0 14px 40px rgba(42, 29, 18, 0.16);
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display { font-family: 'Sansita', Georgia, serif; line-height: 1.05; }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { display: block; max-width: 100%; }
+
+  .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--red);
+  }
+
+  .section { padding: 96px 0; }
+  .section-light { background: var(--cream); }
+  .section-cream2 { background: var(--cream-2); }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 15px 30px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary { background: var(--red); color: var(--white); }
+  .btn-primary:hover { background: var(--red-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(161,0,0,0.32); }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: var(--gold-soft); transform: translateY(-2px); }
+
+  /* focus visibility for accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(246, 242, 238, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 90, 43, 0.16);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .nav-logo img { height: 34px; width: auto; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-weight: 600; font-size: 0.94rem; color: var(--ink-soft);
+    position: relative; padding: 4px 0;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-cta { background: var(--red); color: var(--white) !important; padding: 9px 20px; border-radius: 999px; }
+  .nav-cta:hover { background: var(--red-deep); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { display: block; width: 26px; height: 3px; background: var(--brown-dark); border-radius: 2px; margin: 5px 0; transition: 0.25s; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex; align-items: center;
+    color: var(--white);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('assets/DSCF2495.jpg');
+    background-size: cover; background-position: center 35%;
+    transform: scale(1.03);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(42,20,10,0.55) 0%, rgba(122,0,0,0.45) 55%, rgba(42,20,10,0.82) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; padding: 120px 0 80px; max-width: 760px; }
+  .hero-logo {
+    background: var(--cream);
+    padding: 18px 24px;
+    border-radius: 14px;
+    display: inline-block;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+  }
+  .hero-logo img { height: 56px; width: auto; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold); color: var(--ink);
+    font-weight: 700; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 8px 16px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .tag .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--red); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
+  .hero h1 .accent { color: var(--gold-soft); }
+  .hero p.lede { font-size: 1.2rem; margin: 22px 0 34px; max-width: 560px; color: rgba(255,255,255,0.94); }
+
+  /* email capture form */
+  .capture {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    max-width: 520px;
+  }
+  .capture input[type="email"] {
+    flex: 1 1 240px;
+    padding: 15px 20px;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  .capture .form-note { flex-basis: 100%; font-size: 0.84rem; margin-top: 6px; opacity: 0.85; }
+  .form-msg { flex-basis: 100%; font-weight: 600; margin-top: 8px; min-height: 1.2em; }
+
+  /* ---------- Section headings ---------- */
+  .head { max-width: 720px; margin-bottom: 52px; }
+  .head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .head h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); font-weight: 800; color: var(--brown-dark); margin: 12px 0; }
+  .head p { font-size: 1.12rem; color: var(--ink-soft); }
+
+  /* ---------- About ---------- */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .about-copy p { margin-bottom: 18px; font-size: 1.08rem; color: var(--ink-soft); }
+  .about-copy p strong { color: var(--brown-dark); }
+  .about-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; }
+
+  /* ---------- Experiences ---------- */
+  .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .exp-card {
+    background: var(--white);
+    border: 1px solid rgba(139,90,43,0.14);
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    box-shadow: 0 6px 18px rgba(42,29,18,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .exp-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+  .exp-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--cream-2); color: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .exp-icon svg { width: 30px; height: 30px; }
+  .exp-card h3 { font-size: 1.4rem; color: var(--brown-dark); margin-bottom: 8px; }
+  .exp-card p { color: var(--ink-soft); font-size: 0.99rem; }
+
+  /* ---------- Stats / Year 1 ---------- */
+  .year1 { background: var(--brown-dark); color: var(--cream); }
+  .year1 .head h2 { color: var(--cream); }
+  .year1 .head p { color: rgba(246,242,238,0.85); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 56px; }
+  .stat {
+    text-align: center; padding: 30px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+  }
+  .stat .num { font-family: 'Sansita', serif; font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 800; color: var(--gold-soft); line-height: 1; }
+  .stat .label { margin-top: 10px; font-size: 0.95rem; color: rgba(246,242,238,0.9); }
+
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 14px; }
+  .gallery a { display: block; border-radius: 14px; overflow: hidden; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .gallery a:hover img { transform: scale(1.06); }
+  .gallery .wide { grid-column: span 2; }
+  .gallery .tall { grid-row: span 2; }
+
+  /* ---------- Wineries / Partners ---------- */
+  .partners-band { text-align: center; }
+  .logo-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin-top: 40px; }
+  .partners-band .head h2 { color: var(--cream); }
+  .partners-band .head p { color: rgba(246,242,238,0.8); }
+  .logo-slot {
+    aspect-ratio: 3/2;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.05); padding: 18px 22px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .logo-slot img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; opacity: 0.82; transition: opacity 0.2s ease; }
+  .logo-slot:hover { transform: translateY(-3px); background: rgba(255,255,255,0.1); }
+  .logo-slot:hover img { opacity: 1; }
+
+  /* ---------- Powered by pourd ---------- */
+  .pourd { background: var(--teal); color: #eaf3f2; }
+  .pourd-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+  .pourd-copy .eyebrow { color: var(--gold-soft); }
+  .pourd-copy h2 { font-size: clamp(2rem, 4vw, 2.9rem); color: var(--white); margin: 12px 0 18px; font-weight: 800; }
+  .pourd-copy p { color: rgba(234,243,242,0.86); font-size: 1.1rem; margin-bottom: 16px; }
+  .pourd-mark { font-weight: 700; color: #fff; }
+
+  /* dashboard mockup */
+  .dash {
+    background: #fbfdfd; color: var(--ink);
+    border-radius: 18px; padding: 26px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  }
+  .dash-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid #e6efee; }
+  .dash-top .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--teal); }
+  .dash-dot { width: 26px; height: 26px; border-radius: 8px; background: var(--teal); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-family: 'Sansita',serif; }
+  .dash-top .meta { font-size: 0.8rem; color: #6a7a79; text-align: right; }
+  .dash-kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 22px; }
+  .kpi { background: #f1f7f6; border-radius: 12px; padding: 16px; }
+  .kpi .k-num { font-family: 'Sansita', serif; font-size: 1.9rem; font-weight: 800; color: var(--teal); line-height: 1; }
+  .kpi .k-label { font-size: 0.82rem; color: #5c6c6b; margin-top: 6px; }
+  .kpi .k-trend { font-size: 0.74rem; color: #2f8a5e; font-weight: 600; margin-top: 4px; }
+  .dash-bars .bar-row { display: grid; grid-template-columns: 120px 1fr 46px; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .dash-bars .bar-row span:first-child { font-size: 0.84rem; color: #4a5a59; font-weight: 600; }
+  .bar-track { background: #e6efee; border-radius: 999px; height: 12px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+  .bar-val { font-size: 0.82rem; font-weight: 700; color: var(--teal); text-align: right; }
+  .dash-foot { margin-top: 18px; font-size: 0.74rem; color: #8a9a99; font-style: italic; }
+  .dash-title { font-weight: 700; font-size: 0.95rem; color: var(--teal); margin-bottom: 14px; }
+
+  /* ---------- Sponsors ---------- */
+  .sponsors { background: var(--red); color: var(--white); text-align: center; }
+  .sponsors h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); color: #fff; margin-bottom: 14px; font-weight: 800; }
+  .sponsors p { font-size: 1.12rem; max-width: 620px; margin: 0 auto 28px; color: rgba(255,255,255,0.92); }
+
+  /* ---------- Stay tuned ---------- */
+  .stay { text-align: center; background: var(--cream-2); }
+  .stay .capture { margin: 28px auto 0; justify-content: center; }
+  .stay .capture input[type="email"] { border-color: rgba(139,90,43,0.3); }
+  .stay .form-note, .stay .form-msg { text-align: center; color: var(--ink-soft); }
+
+  /* ---------- Footer ---------- */
+  footer.site {
+    background: var(--ink); color: rgba(246,242,238,0.82);
+    padding: 64px 0 36px;
+  }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.4fr; gap: 48px; align-items: start; }
+  .foot-logo { background: var(--cream); padding: 14px 18px; border-radius: 12px; display: inline-block; }
+  .foot-logo img { height: 34px; }
+  footer.site p { font-size: 0.95rem; margin-top: 16px; }
+  .foot-nav { display: flex; flex-direction: column; gap: 10px; }
+  .foot-nav a { font-size: 0.95rem; color: rgba(246,242,238,0.78); }
+  .foot-nav a:hover { color: var(--gold-soft); }
+  .foot-form label { display: block; font-weight: 600; color: var(--cream); margin-bottom: 12px; }
+  .foot-form .capture input[type="email"] { border-color: rgba(255,255,255,0.2); }
+  .foot-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    margin-top: 44px; padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 0.86rem; color: rgba(246,242,238,0.6);
+  }
+  .foot-bottom .powered { display: inline-flex; align-items: center; gap: 6px; }
+  .foot-bottom .powered b { color: var(--gold-soft); }
+  .admin-link { text-decoration: underline; text-underline-offset: 3px; opacity: 0.7; }
+  .admin-link:hover { opacity: 1; color: var(--gold-soft); }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .about-grid, .pourd-grid { grid-template-columns: 1fr; gap: 36px; }
+    .exp-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .logo-grid { grid-template-columns: repeat(4, 1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .about-photo { order: -1; }
+  }
+  @media (max-width: 720px) {
+    .section { padding: 68px 0; }
+    .nav-links {
+      display: none;
+      position: absolute; top: 72px; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: var(--cream); border-bottom: 1px solid rgba(139,90,43,0.2);
+      padding: 10px 24px 20px;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 0; width: 100%; border-bottom: 1px solid rgba(139,90,43,0.1); }
+    .nav-links .nav-cta { text-align: center; margin-top: 10px; border-bottom: none; }
+    .nav-toggle { display: block; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .gallery .wide { grid-column: span 2; }
+    .gallery .tall { grid-row: span 1; }
+    .logo-grid { grid-template-columns: repeat(3, 1fr); }
+    .foot-grid { grid-template-columns: 1fr; gap: 32px; }
+    .dash-bars .bar-row { grid-template-columns: 90px 1fr 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="SLO Wine Mixer home">
+      <img src="assets/swm-logo.png" alt="SLO Wine Mixer logo" />
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#wineries">Wineries</a>
+      <a href="#year1">Year 1</a>
+      <a href="#partners">Partners</a>
+      <a href="#stay" class="nav-cta">Stay Tuned</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="A packed crowd of guests tasting wine at the inaugural SLO Wine Mixer"></div>
+  <div class="hero-overlay"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-logo">
+      <img src="assets/swm-logo.png" alt="SLO Wine Mixer" />
+    </div>
+    <div class="tag"><span class="dot"></span> April 3, 2027 &middot; San Luis Obispo</div>
+    <h1>The Central Coast's<br />Wine Festival <span class="accent">Returns</span></h1>
+    <p class="lede">Unlimited pours from local wineries, live music, mechanical bull, and zero wine snobbery. San Luis Obispo's wildest tasting is back Saturday, April 3, 2027.</p>
+    <form class="capture" id="heroForm" novalidate>
+      <label for="heroEmail" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
+      <input type="email" id="heroEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
+      <button type="submit" class="btn btn-gold">Notify Me</button>
+      <span class="form-note">Be the first to know when tickets drop. No spam, just wine.</span>
+      <span class="form-msg" id="heroMsg" role="status" aria-live="polite"></span>
+    </form>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section section-light" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">What is the SLO Wine Mixer</span>
+      <h2 style="font-family:'Sansita',serif;font-size:clamp(2rem,4.4vw,3rem);color:var(--brown-dark);margin:12px 0 22px;font-weight:800;">A wine festival for people who like to have fun.</h2>
+      <p>The SLO Wine Mixer is the Central Coast's high-energy wine festival, built for a new generation of wine lovers. One ticket, unlimited tastings from local wineries, and a room full of good people who would rather laugh than sniff and spit.</p>
+      <p>We trade the velvet rope for a <strong>mechanical bull</strong>, a live band, and a DJ. We trade the lecture for "No Snob" wine classes that actually make tasting fun. Think coastal cowboy energy, big pours, and the best Saturday San Luis Obispo has seen.</p>
+      <p>Year 1 sold out and packed the room. Year 2 lands Saturday, April 3, 2027, and it is going to be bigger. Get on the list so you do not miss the drop.</p>
+    </div>
+    <div class="about-photo reveal">
+      <img src="assets/DSCF2940.jpg" alt="Two guests smiling beside the glowing red SLO Wine Mixer neon sign" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCES ================= -->
+<section class="section section-cream2" id="experiences">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">The Experience</span>
+      <h2>More than a tasting</h2>
+      <p>Six reasons the SLO Wine Mixer hits different. Show up thirsty, leave with a new favorite winery and a story.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8M12 11v11M5 3h14l-1.5 6a5.5 5.5 0 0 1-11 0L5 3Z"/></svg>
+        </div>
+        <h3>Unlimited Tastings</h3>
+        <p>Pour after pour from dozens of Central Coast wineries. One wristband, no limits, just bring your glass back.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <h3>Live Music &amp; DJ</h3>
+        <p>A live band and a DJ keep the energy up from the first pour to the last call. This is a party, not a museum.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c3-2 5-2 9 0s6 2 9 0M4 14c.5-4 3-7 8-7s7.5 3 8 7M12 7V4"/></svg>
+        </div>
+        <h3>Mechanical Bull</h3>
+        <p>Coastal cowboy energy, literally. Grab your hat, hold on tight, and let the crowd cheer you on.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+        </div>
+        <h3>"No Snob" Wine Classes</h3>
+        <p>Quick, fun, judgment-free classes that teach you what you actually like. No swirling rules, no shame.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M7 5l1.2-2h7.6L17 5"/></svg>
+        </div>
+        <h3>Photo Activations</h3>
+        <p>Neon signs, props, and backdrops built for the feed. Round up your crew and make the memory permanent.</p>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M9 3v6"/></svg>
+        </div>
+        <h3>The Wine Window</h3>
+        <p>A throwback Tuscan tradition, reborn Central Coast style. Walk up, get poured, keep the night moving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= YEAR 1 ================= -->
+<section class="section year1" id="year1">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow" style="color:var(--gold-soft);">June 6, 2026 &middot; The Inaugural Year</span>
+      <h2>Year 1, by the numbers</h2>
+      <p>The Central Coast's first Gen-Z-leaning wine festival landed in San Luis Obispo and packed the house. Here is what went down.</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="num">~750</div><div class="label">Guests through the doors</div></div>
+      <div class="stat reveal"><div class="num">41</div><div class="label">Wineries pouring</div></div>
+      <div class="stat reveal"><div class="num">1st</div><div class="label">Gen-Z-leaning fest on the Central Coast</div></div>
+      <div class="stat reveal"><div class="num">1</div><div class="label">Unforgettable day</div></div>
+    </div>
+    <!-- Real Year 1 gallery -->
+    <div class="gallery reveal">
+      <a href="assets/DSCF2495.jpg" class="wide" target="_blank" rel="noopener">
+        <img src="assets/DSCF2495-sm.jpg" alt="A packed crowd of guests tasting wine at the SLO Wine Mixer" loading="lazy" />
+      </a>
+      <a href="assets/DSCF2438.jpg" target="_blank" rel="noopener">
+        <img src="assets/DSCF2438-sm.jpg" alt="Guests chatting over glasses of wine at a winery table" loading="lazy" />
+      </a>
+      <a href="assets/DSCF2441.jpg" target="_blank" rel="noopener">
+        <img src="assets/DSCF2441-sm.jpg" alt="Friends in cowboy hats laughing over wine" loading="lazy" />
+      </a>
+      <a href="assets/DSCF2940.jpg" class="wide" target="_blank" rel="noopener">
+        <img src="assets/DSCF2940-sm.jpg" alt="A couple posing by the red SLO Wine Mixer neon sign" loading="lazy" />
+      </a>
+      <a href="assets/DSCF2969.jpg" class="wide" target="_blank" rel="noopener">
+        <img src="assets/DSCF2969-sm.jpg" alt="Guests enjoying the SLO Wine Mixer" loading="lazy" />
+      </a>
+      <!-- PLACEHOLDER: Ethan, add more Year 1 photos here. Drop processed JPGs into /assets and add <a><img> blocks following the pattern above. -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= WINERIES ================= -->
+<section class="section partners-band" id="wineries" style="background:var(--ink);">
+  <div class="wrap">
+    <div class="head center reveal" style="margin-bottom:20px;">
+      <span class="eyebrow" style="color:var(--gold-soft);">Poured at Year 1</span>
+      <h2>The wineries make the magic</h2>
+      <p>41 Central Coast wineries poured at Year 1. The Year 2 lineup is coming soon.</p>
+    </div>
+    <div class="logo-grid reveal" aria-label="Wineries that poured at Year 1">
+      <div class="logo-slot"><img src="logos/absolution-cellars.png" alt="Absolution Cellars" /></div>
+      <div class="logo-slot"><img src="logos/avivo.png" alt="Avivo" /></div>
+      <div class="logo-slot"><img src="logos/bezel-cellars.png" alt="Bezel Cellars" /></div>
+      <div class="logo-slot"><img src="logos/bianchi-winery.png" alt="Bianchi Winery" /></div>
+      <div class="logo-slot"><img src="logos/hope-family-wines.png" alt="Hope Family Wines" /></div>
+      <div class="logo-slot"><img src="logos/j-lohr-vineyards-wines.png" alt="J. Lohr Vineyards Wines" /></div>
+      <div class="logo-slot"><img src="logos/mcprice-myers-wines.png" alt="McPrice Myers Wines" /></div>
+      <div class="logo-slot"><img src="logos/serial-wines.png" alt="Serial Wines" /></div>
+      <div class="logo-slot"><img src="logos/st-amant-winery.png" alt="St Amant Winery" /></div>
+      <div class="logo-slot"><img src="logos/summerwood-winery-inn.png" alt="Summerwood Winery Inn" /></div>
+      <div class="logo-slot"><img src="logos/thacher-winery-vineyard.png" alt="Thacher Winery Vineyard" /></div>
+      <div class="logo-slot"><img src="logos/tobin-james-cellars.png" alt="Tobin James Cellars" /></div>
+      <div class="logo-slot"><img src="logos/truss-wines.png" alt="Truss Wines" /></div>
+      <div class="logo-slot"><img src="logos/vinyl-vineyards.png" alt="Vinyl Vineyards" /></div>
+      <div class="logo-slot"><img src="logos/wilbur-wines.png" alt="Wilbur Wines" /></div>
+      <div class="logo-slot"><img src="logos/wine-boss.png" alt="Wine Boss" /></div>
+    </div>
+    <p class="reveal" style="margin-top:36px;font-size:1.05rem;color:rgba(246,242,238,0.85);">Make wine on the Central Coast? <a href="mailto:hello@slowinemixer.com?subject=Pour%20at%20SLO%20Wine%20Mixer%202027" style="color:var(--gold-soft);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Pour with us in 2027</a></p>
+  </div>
+</section>
+
+<!-- ================= POWERED BY POURD ================= -->
+<section class="section pourd" id="partners">
+  <div class="wrap pourd-grid">
+    <div class="pourd-copy reveal">
+      <span class="eyebrow">Powered by pourd</span>
+      <h2>The festival runs on pourd.</h2>
+      <p>Behind every pour at the SLO Wine Mixer is <span class="pourd-mark">pourd</span>, the software platform built for the wine industry. Check-ins, tastings, and live results, all in one place.</p>
+      <p>Wineries do not just pour, they walk away with real data: who tasted what, how it landed, and who wants to come back. That is how a fun festival becomes a serious sales channel.</p>
+    </div>
+    <div class="dash reveal" role="img" aria-label="Illustrative demo of a winery's pourd event dashboard showing 312 bottles poured, an 82 percent pour rate, a 4.6 average rating, 71 percent would-return, and a varietal performance breakdown">
+      <div class="dash-top">
+        <div class="brand"><span class="dash-dot">p</span> pourd</div>
+        <div class="meta">Tolosa Vineyards<br />SLO Wine Mixer &middot; Event Recap</div>
+      </div>
+      <div class="dash-kpis">
+        <div class="kpi"><div class="k-num">312</div><div class="k-label">Bottles poured</div><div class="k-trend">&uarr; live at event</div></div>
+        <div class="kpi"><div class="k-num">82%</div><div class="k-label">Pour-through rate</div><div class="k-trend">&uarr; 9% vs. avg</div></div>
+        <div class="kpi"><div class="k-num">4.6</div><div class="k-label">Avg guest rating</div><div class="k-trend">out of 5.0</div></div>
+        <div class="kpi"><div class="k-num">71%</div><div class="k-label">Would return / buy</div><div class="k-trend">218 guests</div></div>
+      </div>
+      <div class="dash-bars">
+        <div class="dash-title">Varietal performance</div>
+        <div class="bar-row"><span>Pinot Noir</span><span class="bar-track"><span class="bar-fill" style="width:92%"></span></span><span class="bar-val">4.8</span></div>
+        <div class="bar-row"><span>Chardonnay</span><span class="bar-track"><span class="bar-fill" style="width:84%"></span></span><span class="bar-val">4.5</span></div>
+        <div class="bar-row"><span>Rosé</span><span class="bar-track"><span class="bar-fill" style="width:78%"></span></span><span class="bar-val">4.3</span></div>
+        <div class="bar-row"><span>Syrah</span><span class="bar-track"><span class="bar-fill" style="width:70%"></span></span><span class="bar-val">4.1</span></div>
+      </div>
+      <div class="dash-foot">Illustrative demo data. Your real numbers, live in pourd.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPONSORS ================= -->
+<section class="section sponsors">
+  <div class="wrap reveal">
+    <h2>Want your brand in the room?</h2>
+    <p>Year 2 sponsorships put you in front of hundreds of engaged Central Coast wine lovers. Let us build something that fits.</p>
+    <a href="mailto:hello@slowinemixer.com?subject=Year%202%20Sponsorship" class="btn btn-gold">Talk Sponsorships</a>
+  </div>
+</section>
+
+<!-- ================= STAY TUNED ================= -->
+<section class="section stay" id="stay">
+  <div class="wrap reveal">
+    <span class="eyebrow">Saturday, April 3, 2027 &middot; San Luis Obispo</span>
+    <h2 style="font-family:'Sansita',serif;font-size:clamp(2rem,4.4vw,3rem);color:var(--brown-dark);margin:12px 0;font-weight:800;">Be the first to know when tickets drop</h2>
+    <p style="font-size:1.12rem;color:var(--ink-soft);max-width:560px;margin:0 auto;">The date is locked. Tickets are not on sale yet. Leave your email and we will hit you up the second they drop.</p>
+    <form class="capture" id="stayForm" novalidate>
+      <label for="stayEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
+      <input type="email" id="stayEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
+      <button type="submit" class="btn btn-primary">Notify Me</button>
+      <span class="form-note">We will only email about the SLO Wine Mixer. Promise.</span>
+      <span class="form-msg" id="stayMsg" role="status" aria-live="polite"></span>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="foot-logo"><img src="assets/swm-logo.png" alt="SLO Wine Mixer" /></span>
+        <p>San Luis Obispo, CA<br />The Central Coast's wine festival for people who like to have fun.</p>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#wineries">Wineries</a>
+        <a href="#year1">Year 1</a>
+        <a href="#partners">Powered by pourd</a>
+        <a href="#stay">Stay Tuned</a>
+      </nav>
+      <div class="foot-form">
+        <label for="footEmail">Get the Year 2 drop in your inbox</label>
+        <form class="capture" id="footForm" novalidate>
+          <input type="email" id="footEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
+          <button type="submit" class="btn btn-gold">Notify Me</button>
+          <span class="form-msg" id="footMsg" role="status" aria-live="polite" style="color:var(--gold-soft);"></span>
+        </form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Wine Event Z LLC. All rights reserved.</span>
+      <span class="powered">Powered by <b>pourd</b>, software for the wine industry. &middot; <a href="https://pourdhq.com/admin" class="admin-link">Admin</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  // Email capture (non-functional placeholder: show thank-you on submit)
+  function wireForm(formId, inputId, msgId) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    var input = document.getElementById(inputId);
+    var msg = document.getElementById(msgId);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var val = (input.value || '').trim();
+      var ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val);
+      if (!ok) {
+        msg.textContent = 'Hmm, that email looks off. Try again?';
+        msg.style.color = '#ffd27a';
+        input.focus();
+        return;
+      }
+      msg.textContent = "You're on the list! We'll be in touch when Year 2 drops.";
+      input.value = '';
+    });
+  }
+  wireForm('heroForm', 'heroEmail', 'heroMsg');
+  wireForm('stayForm', 'stayEmail', 'stayMsg');
+  wireForm('footForm', 'footEmail', 'footMsg');
+
+  // Scroll reveal
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
