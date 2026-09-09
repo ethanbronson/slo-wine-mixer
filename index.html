@@ -622,15 +622,18 @@
     });
   })();
 
-  // Email capture (non-functional placeholder: show thank-you on submit)
-  function wireForm(formId, inputId, msgId) {
+  // Email capture: writes to the SLO Wine Mixer Supabase project (insert-only public key)
+  var SB_URL = 'https://ylderkucvtnfsysrsojb.supabase.co';
+  var SB_KEY = 'sb_publishable_Pa3pGeNhIAmbve95B62ukA_98bkjt9r';
+  function wireForm(formId, inputId, msgId, source) {
     var form = document.getElementById(formId);
     if (!form) return;
     var input = document.getElementById(inputId);
     var msg = document.getElementById(msgId);
+    var btn = form.querySelector('button[type="submit"]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var val = (input.value || '').trim();
+      var val = (input.value || '').trim().toLowerCase();
       var ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val);
       if (!ok) {
         msg.textContent = 'Hmm, that email looks off. Try again?';
@@ -638,13 +641,37 @@
         input.focus();
         return;
       }
-      msg.textContent = "You're on the list! We'll be in touch when Year 2 drops.";
-      input.value = '';
+      btn.disabled = true;
+      msg.style.color = '';
+      msg.textContent = 'Adding you...';
+      fetch(SB_URL + '/rest/v1/signups', {
+        method: 'POST',
+        headers: {
+          'apikey': SB_KEY,
+          'Authorization': 'Bearer ' + SB_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email: val, source: source })
+      }).then(function (r) {
+        if (r.status === 201) {
+          msg.textContent = "You're on the list! We'll be in touch when Year 2 drops.";
+          input.value = '';
+        } else if (r.status === 409) {
+          msg.textContent = "You're already on the list. See you in April!";
+          input.value = '';
+        } else {
+          throw new Error('status ' + r.status);
+        }
+      }).catch(function () {
+        msg.textContent = 'Something hiccuped. Try again in a sec, or email hello@slowinemixer.com.';
+        msg.style.color = '#ffd27a';
+      }).finally(function () { btn.disabled = false; });
     });
   }
-  wireForm('heroForm', 'heroEmail', 'heroMsg');
-  wireForm('stayForm', 'stayEmail', 'stayMsg');
-  wireForm('footForm', 'footEmail', 'footMsg');
+  wireForm('heroForm', 'heroEmail', 'heroMsg', 'hero');
+  wireForm('stayForm', 'stayEmail', 'stayMsg', 'stay-tuned');
+  wireForm('footForm', 'footEmail', 'footMsg', 'footer');
 
   // Scroll reveal
   (function () {
